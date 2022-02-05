@@ -1,0 +1,39 @@
+.App-header {
+  background-color: #282c34;
+  height: 100vh;
+}
+
+.item{
+  color: bisque;
+  padding: 10px;
+  border: 1px solid bisque;
+}
+
+.container{
+  max-width: 1444px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: 'header header' 'sidebar content';
+  grid-gap: 10px;
+  grid-template-columns: 1fr 4fr;
+
+  padding: 10px;
+}
+
+.header{
+  grid-area: header;
+  text-align: center;
+}
+
+header img{
+  width: 165px;
+}
+
+.sidebar{
+  grid-area: sidebar;
+  align-self: start;
+  height: 400px;
+}
+.content{
+  grid-area: content;
+}
