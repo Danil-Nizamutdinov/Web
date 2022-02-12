@@ -3,12 +3,6 @@
   height: 100vh;
 }
 
-.item{
-  color: bisque;
-  padding: 10px;
-  border: 1px solid bisque;
-}
-
 .container{
   max-width: 1444px;
   margin: 0 auto;
@@ -20,20 +14,4 @@
   padding: 10px;
 }
 
-.header{
-  grid-area: header;
-  text-align: center;
-}
 
-header img{
-  width: 165px;
-}
-
-.sidebar{
-  grid-area: sidebar;
-  align-self: start;
-  height: 400px;
-}
-.content{
-  grid-area: content;
-}

@@ -1,6 +1,8 @@
+import nb from './Navbar.module.css';
+
 function Navbar(){
     return(
-        <nav className="item sidebar">
+        <nav className={`${nb.item} ${nb.sidebar}`}>
 
             <div>
                 <a href="#">Profile</a>

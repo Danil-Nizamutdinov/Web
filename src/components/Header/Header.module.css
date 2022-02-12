@@ -1,0 +1,14 @@
+.item{
+    color: bisque;
+    padding: 10px;
+    border: 1px solid bisque;
+}
+
+.header{
+    grid-area: header;
+    text-align: center;
+}
+
+.header img{
+    width: 165px;
+}
