@@ -1,11 +1,11 @@
 import dl from './Dialog.module.css';
 
-function Dialog(){
+function Dialogs(){
     return(
         <div>
-
+            Dialog
         </div>
     )
 }
 
-export default Dialog;
+export default Dialogs;
