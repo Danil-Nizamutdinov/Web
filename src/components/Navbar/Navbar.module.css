@@ -9,3 +9,19 @@
     align-self: start;
     height: 400px;
 }
+
+.sidebar div{
+    padding: 20px 0px 0px 20px;
+}
+
+.nav{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.active{
+    text-decoration: none;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    padding: 5px 15px;
+}

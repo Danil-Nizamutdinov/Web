@@ -1,23 +1,24 @@
 import nb from './Navbar.module.css';
+import {NavLink} from 'react-router-dom';
 
 function Navbar(){
     return(
         <nav className={`${nb.item} ${nb.sidebar}`}>
 
             <div>
-                <a href="#">Profile</a>
+                <NavLink to='/profile' className={nb.nav} className = { navData => navData.isActive ? nb.active : nb.nav }>Profile</NavLink>
             </div>
             <div>
-                <a href="#">Messages</a>
+                <NavLink to='/dialogs' className={nb.nav} className = { navData => navData.isActive ? nb.active : nb.nav }>Message</NavLink>
             </div>
             <div>
-                <a href="#">News</a>
+                <NavLink to='#' className={nb.nav}>News</NavLink>
             </div>
             <div>
-                <a href="#">Music</a>
+                <NavLink to='#' className={nb.nav}>Music</NavLink>
             </div>
             <div>
-                <a href="#">Settings</a>
+                <NavLink to='#' className={nb.nav}>Settings</NavLink>
             </div>
 
         </nav>

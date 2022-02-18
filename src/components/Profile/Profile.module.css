@@ -1,9 +1,0 @@
-.item{
-    color: bisque;
-    padding: 10px;
-    border: 1px solid bisque;
-}
-
-.content{
-    grid-area: content;
-}

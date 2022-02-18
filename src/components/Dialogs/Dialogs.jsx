@@ -1,4 +1,4 @@
-import dl from './Dialog.module.css';
+import dl from './Dialogs.module.css';
 
 function Dialogs(){
     return(

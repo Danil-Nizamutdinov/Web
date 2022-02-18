@@ -1,4 +1,4 @@
-.App-header {
+.App-wrapper {
   background-color: #282c34;
   height: 100vh;
 }
@@ -12,6 +12,13 @@
   grid-template-columns: 1fr 4fr;
 
   padding: 10px;
+}
+
+.App-wrapper-content{
+  color: bisque;
+  padding: 10px;
+  border: 1px solid bisque;
+  grid-area: content;
 }
 
 
