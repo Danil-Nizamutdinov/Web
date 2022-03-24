@@ -1,0 +1,19 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    color: whitesmoke;
+    line-height: 2em;
+}
+
+.dialogsItems{
+    padding: 10px;
+}
+
+.messages{
+    padding: 10px;
+}
+
+.dialog{
+    color: whitesmoke;
+    text-decoration: none;
+}

@@ -1,31 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter as Router, Routes , Route} from 'react-router-dom';
+import {Routes , Route} from 'react-router-dom';
 
 
-function App() {
+function App(props) {
+
     return (
-        <Router>
-            <div className="App-wrapper">
-                <div className="container">
+        
+        <div className="App-wrapper">
+            <div className="container">
 
-                    <Header/>
-                    <Navbar/>
+                 <Header/>
+                 <Navbar/>
 
-                    <div className='App-wrapper-content'>
-                        <Routes>
-                            <Route path='/dialogs' element={<Dialogs/>}/>
-                            <Route path='/profile' element={<Profile/>}/>
-                        </Routes>
-                    </div>
-
+                <div className='App-wrapper-content'>
+                    <Routes>
+                           <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
+                           <Route path='/profile' element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                     </Routes>
                 </div>
+
             </div>
-        </Router>
+        </div>
+        
     );
 }
 

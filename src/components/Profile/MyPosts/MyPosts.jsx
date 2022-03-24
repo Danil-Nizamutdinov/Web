@@ -1,17 +1,30 @@
 import mp from './MyPosts.module.css'
 import Post from "./Post/Post";
+import React from 'react';
 
-function MyPosts(){
+function MyPosts(props){
+
+    let postElement = props.posts
+        .map( p =>  <Post message={p.message} likeCount={p.likeCount}/>)
+
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value
+        props.addPost(text)
+    }
+
     return(
         <div>
             my posts
             <div>
-                <textarea ></textarea>
-                <button>Add post</button>
+                <textarea className={mp.textarea} ref={newPostElement}></textarea>
+                <div>
+                    <button className={mp.button} onClick={addPost}>Add post</button>
+                </div>
             </div>
 
-            <Post message='Я гуль'/>
-            <Post message='1000-7?'/>
+            {postElement}
 
         </div>
     );
