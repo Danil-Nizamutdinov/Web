@@ -8,7 +8,7 @@ function Profile(props){
         <div className={`${pf.content} ${pf.item}`}>
 
             <ProfileInfo/>
-            <MyPosts posts={props.state.posts} addPost={props.addPost}/>
+            <MyPosts posts={props.state.posts} dispatch={props.dispatch} newPostText={props.state.newPostText}/>
 
         </div>
     );
