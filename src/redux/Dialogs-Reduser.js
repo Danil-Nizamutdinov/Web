@@ -1,17 +1,39 @@
-const dialogsReduser = (state, action) => {
+let initialState = {
+    dialogs: [
+        {id: 1, name: 'Viktor'},
+        {id: 2, name: 'Alex'},
+        {id: 3, name: 'Kira'}
+    ],
+    message: [
+        {id: 1, message: 'Hi'},
+        {id: 1, message: 'Hello World'},
+        {id: 1, message: 'Привет я кира'}
+    ],
+    bodyText: 'Hi'
+};
+
+const dialogsReduser = (state = initialState, action) => {
+
+    switch(action.type){
+        case 'UPDATE-NEW-MESSAGE-TEXT':
+
+            return {
+                ...state,
+                bodyText: action.newBodyText
+            };
+
+        case 'ADD-MESSAGE': 
+            let bodyText = state.bodyText;
+            return {
+                ...state,
+                message: [...state.message, {id: 3, message: bodyText}],
+                bodyText: ''
+            };
     
-    if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-        state.bodyText = action.newBodyText;
-    }else if (action.type === 'ADD-MESSAGE') {
-        let newMessage = {
-            id: 3, message: state.bodyText
-        };
-        state.message.push(newMessage);
-        state.bodyText = '';
-        console.log(state.message)
+        default:
+            return state;
+
     }
-    
-    return state;
 }
 
 export const updateMessageTextActionCreator = (text) => {

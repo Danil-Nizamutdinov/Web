@@ -1,32 +1,24 @@
 import mp from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from 'react';
-import {addPostActionCreator, onPostChangeActionCreator} from '../../../redux/Profile-Reduser'
 
 
 function MyPosts(props){
 
-    let postElement = props.posts
-        .map( p =>  <Post message={p.message} likeCount={p.likeCount}/>)
+    let postElement = props.posts.map( p =>  <Post message={p.message} likeCount={p.likeCount}/>)
 
-    let newPostElement = React.createRef();
-
-    let addPost = () => {    
-        props.dispatch(addPostActionCreator())
-    }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        props.dispatch(onPostChangeActionCreator(text))
+    let onPostChange = (e) => {
+        let text = e.target.value;
+        props.onPostChange(text);
     }
 
     return(
         <div>
-            my posts
+            <h3>my posts</h3>
             <div>
-                <textarea className={mp.textarea} ref={newPostElement} onChange={onPostChange} value={props.newPostText}/>
+                <textarea className={mp.textarea} onChange={onPostChange} value={props.newPostText}/>
                 <div>
-                    <button className={mp.button} onClick={addPost}>Add post</button>
+                    <button className={mp.button} onClick={props.addPost}>Add post</button>
                 </div>
             </div>
 
@@ -36,4 +28,4 @@ function MyPosts(props){
     );
 }
 
-export default MyPosts
+export default MyPosts;

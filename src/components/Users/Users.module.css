@@ -1,0 +1,38 @@
+
+.body{
+    margin-top: 20px;
+}
+.content{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.ava{
+    width: 100px;
+    height: 100px;
+}
+
+.content_info{
+    display: flex;
+    margin-left: 20px;
+    padding: 5px;
+    border: 2px solid rgb(24, 46, 105);
+    border-radius: 10px;
+}
+
+.name{
+    margin-right: 100px;
+}
+
+p{
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.follow{
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    color: black;
+}

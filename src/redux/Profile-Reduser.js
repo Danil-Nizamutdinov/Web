@@ -1,22 +1,35 @@
 const addPost = 'ADD-POST';
 const onPostChange = 'UPDATE-NEW-POST-TEXT';
 
-const profileReduser = (state, action) => {
-    
-    if (action.type === 'ADD-POST') {
-        let ap = {
-            id: 3, message: state.newPostText, likeCount: 0
-        };
-        state.posts.push(ap)
-    
-        state.newPostText = '';
-    }else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-        state.newPostText = action.newText;
+let initialState = {
+    posts: [
+        {id: 1, message: 'Я гуль', likeCount: '24'},
+        {id: 2, message: '1000-7?', likeCount: '12'}
+    ],
+    newPostText: 'Hi'
+};
 
-        console.log(state.newPostText)
+const profileReduser = (state = initialState, action) => {
+    
+    switch(action.type){
+        case 'ADD-POST':
+            let newPostText = state.newPostText;
+            return {
+                ...state,
+                posts: [...state.posts, {id: 3, message: newPostText, likeCount: 0}],
+                newPostText: ''
+            };         
+
+        case 'UPDATE-NEW-POST-TEXT':
+
+            return {
+                ...state,
+                newPostText: action.newText
+            }
+
+        default:
+            return state;
     }
-
-    return state;
 }
 
 export const addPostActionCreator = () => ({type: addPost})
