@@ -7,7 +7,7 @@ let initialState = {
     message: [
         {id: 1, message: 'Hi'},
         {id: 1, message: 'Hello World'},
-        {id: 1, message: 'Привет я кира'}
+        {id: 1, message: 'Привет'}
     ],
     bodyText: 'Hi'
 };

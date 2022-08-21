@@ -36,3 +36,16 @@ p{
     height: 30px;
     color: black;
 }
+
+.page_num{
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.page_num_active{
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 15px;
+}

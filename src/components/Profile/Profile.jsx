@@ -4,12 +4,13 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
 function Profile(props){
+    
     return(
         <div className={`${pf.content} ${pf.item}`}>
 
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
-
+            
         </div>
     );
 }

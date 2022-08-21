@@ -1,0 +1,9 @@
+.profile_info{
+    display: flex;
+}
+.status{
+    display: block;
+}
+.status_input{
+    color: black;
+}

@@ -4,7 +4,7 @@ import Message from './Message/Message';
 import DialogItem from './Dialog/Dialog';
 
 function Dialogs(props){
-   
+
     let dialogsElements = props.state.dialogs.map( d => <DialogItem name={d.name} id={d.id}/> );
     let messagesElements = props.state.message.map( m =>  <Message message={m.message}/>);
 
@@ -12,6 +12,7 @@ function Dialogs(props){
         let text = e.target.value;
         props.onMessageCang(text);
     }
+
     return(
         <div className={dl.dialogs}>
             <div className={dl.dialogsItems}>

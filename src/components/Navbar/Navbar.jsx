@@ -6,13 +6,13 @@ function Navbar(){
         <nav className={`${nb.item} ${nb.sidebar}`}>
 
             <div>
-                <NavLink to='/profile' className={nb.nav} className = { navData => navData.isActive ? nb.active : nb.nav }>Profile</NavLink>
+                <NavLink to='/profile/:userId' className = { navData => navData.isActive ? nb.active : nb.nav }>Profile</NavLink>
             </div>
             <div>
-                <NavLink to='/dialogs' className={nb.nav} className = { navData => navData.isActive ? nb.active : nb.nav }>Message</NavLink>
+                <NavLink to='/dialogs' className = { navData => navData.isActive ? nb.active : nb.nav }>Message</NavLink>
             </div>
             <div>
-            <NavLink to='/users' className={nb.nav} className = { navData => navData.isActive ? nb.active : nb.nav }>Users</NavLink>
+                <NavLink to='/users' className = { navData => navData.isActive ? nb.active : nb.nav }>Users</NavLink>
             </div>
             <div>
                 <NavLink to='#' className={nb.nav}>Music</NavLink>

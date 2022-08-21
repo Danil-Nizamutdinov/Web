@@ -12,3 +12,8 @@
 .header img{
     width: 165px;
 }
+.navlink{
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}

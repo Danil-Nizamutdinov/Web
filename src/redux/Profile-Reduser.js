@@ -1,12 +1,16 @@
+import {usersAPI} from '../api/api';
+
 const addPost = 'ADD-POST';
 const onPostChange = 'UPDATE-NEW-POST-TEXT';
+const setUser = 'SET_USER_PROFILE'
 
 let initialState = {
     posts: [
         {id: 1, message: 'Я гуль', likeCount: '24'},
         {id: 2, message: '1000-7?', likeCount: '12'}
     ],
-    newPostText: 'Hi'
+    newPostText: 'Hi',
+    profile: null
 };
 
 const profileReduser = (state = initialState, action) => {
@@ -21,10 +25,15 @@ const profileReduser = (state = initialState, action) => {
             };         
 
         case 'UPDATE-NEW-POST-TEXT':
-
             return {
                 ...state,
                 newPostText: action.newText
+            }
+        
+        case 'SET_USER_PROFILE':
+            return{
+                ...state,
+                profile: action.profile
             }
 
         default:
@@ -39,5 +48,14 @@ export const onPostChangeActionCreator = (text) => {
         newText: text
     };
 };
+export const setUserProfile = (profile) => ({type: setUser, profile})
+
+export const getUserProfile = (userId) => {
+    return (dispatch) => {
+        usersAPI.getUserId(userId).then(data => {
+            dispatch(setUserProfile(data))
+        })
+    }
+}
 
 export default profileReduser;

@@ -1,29 +1,45 @@
 import React from "react";
-import * as axios from "axios";
 import us from './Users.module.css'
 import user from "../../assets/image/user.png";
+import {NavLink} from 'react-router-dom';
+import {usersAPI} from '../../api/api';
 
-class Users extends React.Component{
+function Users(props){
 
-    componentDidMount(){
-        axios.get('https://social-network.samuraijs.com/api/1.0/users?page=1&count=3').then( response => {
-                console.log(response)
-                this.props.setUsers(response.data.items)
-        })
-    }
+    let pagesCount = Math.ceil( props.totalUsersCount / props.usersCount)
 
-    render(){
+        let pages = []
+        
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);            
+        }
 
-        return(
-            <div>
+
+
+    return(
+        <div>
+
+                <div>
+
+                    {
+                        pages.map(n => {
+                            return <span onClick={ () => props.onPageChanged(n)} 
+                            className={`${n === props.currentPage ? us.page_num_active : us.page_num}`} >{n}</span>
+                        })
+                    }
+
+                </div>
+    
                 {
-                    this.props.users.map(u =>
+                    props.users.map(u =>
     
                         <div key={u.id} className={us.body}>
                             
                             <div className={us.content}>
-    
-                                <img src={u.photos.small != null ? u.photos.small : user} className={us.ava}/>
+
+                                <NavLink to={'/profile/' + u.id}>
+                                    <img src={u.photos.small != null ? u.photos.small : user} className={us.ava}/>
+                                </NavLink>
     
                                 <div className={us.content_info}>
                                     
@@ -40,16 +56,34 @@ class Users extends React.Component{
     
                             </div>
     
-                            {u.followed ? <button className={us.follow} onClick={ () => {this.props.unfollow(u.id)} }>follow</button> 
-                            : <button className={us.follow} onClick={ () => {this.props.follow(u.id)} }>unfollow</button>}
+                            {u.followed ? <button className={us.follow} disabled={props.followingStatus.some(id => id === u.id)} onClick={ () => {
+                                props.followingInProgress(true, u.id)
+                                usersAPI.unfollow(u.id).then(resultCode => {
+                                    if (resultCode === 0){
+                                        props.unfollowe(u.id)
+                                    }
+                                    props.followingInProgress(false, u.id)
+                                })
+
+                            } }>unfollow</button> 
+
+                            : <button className={us.follow} disabled={props.followingStatus.some(id => id === u.id)} onClick={ () => {  
+                                props.followingInProgress(true, u.id)
+                                usersAPI.follow(u.id).then(resultCode => {
+                                    if (resultCode === 0){
+                                        props.followe(u.id)
+                                    }
+                                    props.followingInProgress(false, u.id)
+                                })
+
+                            } }>follow</button>}
                                                             
                         </div>
     
                     )
                 }
             </div>
-        );
-    }
+    )
 }
 
 export default Users;
